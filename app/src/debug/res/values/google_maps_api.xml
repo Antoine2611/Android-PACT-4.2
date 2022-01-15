@@ -1,0 +1,24 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=44:E6:6B:9E:D0:2D:94:86:1D:91:35:C3:B1:1E:0E:90:49:76:4E:A0%3Bfr.enst.pact42.sportbox
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    fr.enst.pact42.sportbox
+
+    SHA-1 certificate fingerprint:
+    44:E6:6B:9E:D0:2D:94:86:1D:91:35:C3:B1:1E:0E:90:49:76:4E:A0
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyB2s4K4fsZ93CKB9C16ZqAwfVGGFyN5G3I</string>
+</resources>
