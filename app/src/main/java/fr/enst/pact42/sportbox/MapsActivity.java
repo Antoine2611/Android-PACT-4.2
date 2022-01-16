@@ -78,6 +78,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         switch(item.getItemId()){
             case R.id.menu_map_recherche:
                 return true;
+            case R.id.menu_map_casier:
+                return true;
+            case R.id.menu_map_evenement:
+                return true;
+            case R.id.menu_map_mon_profil:
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
