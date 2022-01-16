@@ -8,4 +8,5 @@
         android:icon="@drawable/ic_search"
         android:title="@string/recherche"/>
 
+
 </menu>
