@@ -3,6 +3,7 @@ package fr.enst.pact42.sportbox;
 import static fr.enst.pact42.sportbox.R.menu.*;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
@@ -21,7 +22,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import fr.enst.pact42.sportbox.databinding.ActivityMapsBinding;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
-
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
 
@@ -75,12 +75,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.menu_map_recherche:
-                return true;
-            case R.id.menu_map_casier:
-                return true;
-            case R.id.menu_map_evenement:
-                return true;
-            case R.id.menu_map_mon_profil:
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
