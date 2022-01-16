@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">SportBox</string>
     <string name="title_activity_maps">SportBox Activity</string>
+    <string name="recherche">Recherche</string>
+    <string name="evenements">Évènements</string>
+    <string name="menu">Menu</string>
+    <string name="casiers">Casiers</string>
 </resources>

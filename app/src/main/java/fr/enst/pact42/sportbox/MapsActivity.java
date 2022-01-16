@@ -1,8 +1,13 @@
 package fr.enst.pact42.sportbox;
 
+import static fr.enst.pact42.sportbox.R.menu.*;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -42,6 +47,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -57,5 +63,27 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng test = new LatLng(-35, 150);
         mMap.addMarker(new MarkerOptions().position(test).title("Marker in Paris"));
         return false;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(map_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.menu_map_recherche:
+                return true;
+            case R.id.menu_map_casier:
+                return true;
+            case R.id.menu_map_evenement:
+                return true;
+            case R.id.menu_map_mon_profil:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

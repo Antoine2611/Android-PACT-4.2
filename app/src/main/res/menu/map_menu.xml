@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_map_recherche"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:title="@string/recherche"
+
+        />
+
+    <item
+        android:id="@+id/menu_map_evenement"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="@string/evenements" />
+
+    <item
+        android:id="@+id/menu_map_casier"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="@string/casiers" />
+
+    <item
+        android:id="@+id/menu_map_mon_profil"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="Mon profil" />
+
+
+
+
+
+
+
+</menu>
