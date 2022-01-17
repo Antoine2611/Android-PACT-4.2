@@ -24,6 +24,7 @@
         android:id="@+id/menu_map_mon_profil"
         android:orderInCategory="100"
         app:showAsAction="never"
+        android:onClick="sendMessage"
         android:title="Mon profil" />
 
 
