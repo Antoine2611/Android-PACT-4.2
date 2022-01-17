@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/drawable/ic_search.xml" value="0.2123076923076923" />
-        <entry key="app/src/main/res/layout/activity_maps.xml" value="0.13069908814589665" />
-        <entry key="app/src/main/res/menu/map_menu.xml" value="0.25" />
+        <entry key="..\:/Users/Antoine/AndroidStudioProjects/SportBox/app/src/main/res/layout/activity_maps.xml" value="0.1" />
+        <entry key="..\:/Users/Kelthoum/Desktop/1A/PROJ101-A/Module Android/Projet Android Studio/Android-PACT-4.2/app/src/main/res/layout/activity_mon_profil.xml" value="0.12047101449275362" />
+        <entry key="..\:/Users/Kelthoum/Desktop/1A/PROJ101-A/Module Android/Projet Android Studio/Android-PACT-4.2/app/src/main/res/layout/app_bar_mon_profil.xml" value="0.12047101449275362" />
+        <entry key="..\:/Users/Kelthoum/Desktop/1A/PROJ101-A/Module Android/Projet Android Studio/Android-PACT-4.2/app/src/main/res/layout/content_mon_profil.xml" value="0.12047101449275362" />
       </map>
     </option>
   </component>
