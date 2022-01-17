@@ -103,8 +103,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
-    public void sendMessage(View view) {
+    public void sendMessage(MenuItem item) {
         Intent intent = new Intent(MapsActivity.this, MonProfilActivity.class);
         startActivity(intent);
     }
+
+    public void disconnect(MenuItem item) {
+
+    }
+
 }

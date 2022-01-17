@@ -27,6 +27,12 @@
         android:onClick="sendMessage"
         android:title="Mon profil" />
 
+    <item
+        android:id="@+id/menu_map_deconnexion"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:onClick="disconnect"
+        android:title="Déconnexion" />
 
 
 </menu>
