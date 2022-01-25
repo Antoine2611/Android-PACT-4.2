@@ -112,7 +112,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     public void disconnect(MenuItem item) {
-
+        //item déconnection
     }
 
 }

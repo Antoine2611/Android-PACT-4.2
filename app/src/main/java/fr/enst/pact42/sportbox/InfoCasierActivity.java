@@ -27,9 +27,9 @@ public class InfoCasierActivity extends AppCompatActivity {
     report=findViewById(R.id.report);
     unlock.setEnabled(casier.getAccess());
     report.setEnabled(true);
-    typeMaterial.setText("Type de matériel:   "+ casier.getTypeMaterial());
-    condition.setText("Etat:   "+ casier.getCondition());
-    localisation.setText("Lieu:   "+ casier.getLocalisation());
+    typeMaterial.setText("Type de matériel: "+ casier.getTypeMaterial());
+    condition.setText("Etat: "+ casier.getCondition());
+    localisation.setText("Lieu: "+ casier.getLocalisation());
 
     unlock.setOnClickListener(new View.OnClickListener() {
         @Override
