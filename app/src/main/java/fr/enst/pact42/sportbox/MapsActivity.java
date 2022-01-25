@@ -78,6 +78,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         Random r = new Random();
         int colorHue = r.nextInt(360);
         marker.setIcon(BitmapDescriptorFactory.defaultMarker(colorHue));
+
+        Intent intent = new Intent(MapsActivity.this, InfoCasierActivity.class);
+        startActivity(intent);
         return false;
     }
 

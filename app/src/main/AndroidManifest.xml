@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SportBox">
         <activity
+            android:name=".InfoCasierActivity"
+            android:exported="false" />
+        <activity
             android:name=".MonProfilActivity"
             android:exported="false"
             android:label="@string/title_activity_mon_profil"
