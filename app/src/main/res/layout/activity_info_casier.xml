@@ -1,78 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical"
-android:padding="8dp">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:id="@+id/linearLayout">
 
     <TextView
         android:id="@+id/type_material"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="8dp"
-        android:layout_weight="1"
-        android:background="#205380"
-        android:gravity="center"
-        android:textColor="@color/white"
+        android:layout_width="412dp"
+        android:layout_height="88dp"
+        android:background="#BCC6CD"
+        android:gravity="center|left"
+        android:padding="10dp"
+        android:textColor="@color/black"
         android:textSize="26sp"
         android:textStyle="italic"
+        tools:layout_conversion_absoluteHeight="135dp"
+        tools:layout_conversion_absoluteWidth="389dp"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="83dp"
         tools:text="Type de matériel:" />
 
     <TextView
         android:id="@+id/condition"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="8dp"
-        android:layout_weight="1"
-        android:background="#205380"
-        android:gravity="center"
-        android:textColor="@color/white"
+        android:layout_width="412dp"
+        android:layout_height="88dp"
+        android:background="#BCC6CD"
+        android:gravity="center|left"
+        android:padding="10dp"
+        android:textColor="@color/black"
         android:textSize="26sp"
         android:textStyle="italic"
+        tools:layout_conversion_absoluteHeight="129dp"
+        tools:layout_conversion_absoluteWidth="389dp"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="203dp"
         tools:text="Etat du matérial:" />
 
     <TextView
         android:id="@+id/localisation"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="8dp"
-        android:layout_weight="1"
-        android:background="#205380"
-        android:gravity="center"
-        android:textColor="@color/white"
+        android:layout_width="412dp"
+        android:layout_height="88dp"
+        android:background="#BCC6CD"
+        android:gravity="center|left"
+        android:padding="10dp"
+        android:textColor="@color/black"
         android:textSize="26sp"
         android:textStyle="italic"
+        tools:layout_conversion_absoluteHeight="130dp"
+        tools:layout_conversion_absoluteWidth="389dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="319dp"
         tools:text="Lieu:" />
 
     <Button
         android:id="@+id/unlock"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="8dp"
-        android:layout_weight="0.5"
+        android:layout_width="236dp"
+        android:layout_height="96dp"
         android:backgroundTint="#39C306"
         android:padding="16dp"
-        android:textSize="20sp"
+        android:text="Déverouiller"
         android:textColor="@color/white"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:text="Déverouiller" />
+        tools:layout_conversion_absoluteHeight="149dp"
+        tools:layout_conversion_absoluteWidth="269dp"
+        tools:layout_editor_absoluteX="87dp"
+        tools:layout_editor_absoluteY="474dp" />
 
     <Button
         android:id="@+id/report"
-        android:layout_width="202dp"
-        android:layout_height="0dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="8dp"
-        android:layout_weight="0.5"
+        android:layout_width="162dp"
+        android:layout_height="96dp"
         android:backgroundTint="#DD1709"
         android:padding="16dp"
         android:text="Signaler"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:layout_conversion_absoluteHeight="133dp"
+        tools:layout_conversion_absoluteWidth="267dp"
+        tools:layout_editor_absoluteX="124dp"
+        tools:layout_editor_absoluteY="603dp" />
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
