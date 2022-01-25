@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".LoginActivity">
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="255dp"
+            android:layout_height="42dp"
+            android:ems="10"
+            android:hint="Veuillez informer votre mot de passe"
+            android:inputType="textEmailAddress"
+            android:textColor="#1976D2"
+            android:textStyle="normal|italic"
+            tools:layout_editor_absoluteX="89dp"
+            tools:layout_editor_absoluteY="286dp" />
+
+        <TextView
+            android:id="@+id/text_passworld"
+            android:layout_width="352dp"
+            android:layout_height="46dp"
+            android:background="#FFFFFF"
+            android:text="Mot de passe:"
+            android:textSize="25sp"
+            android:textStyle="normal|italic"
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="211dp" />
+
+        <TextView
+            android:id="@+id/text_email"
+            android:layout_width="352dp"
+            android:layout_height="46dp"
+            android:background="#FFFFFF"
+            android:text="Adresse email:"
+            android:textSize="25sp"
+            android:textStyle="normal|italic"
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="62dp" />
+
+        <EditText
+            android:id="@+id/email_address"
+            android:layout_width="255dp"
+            android:layout_height="42dp"
+            android:ems="10"
+            android:hint="Veuillez informer votre adresse email"
+            android:inputType="textEmailAddress"
+            android:textColor="#1976D2"
+            android:textStyle="normal|italic"
+            tools:layout_editor_absoluteX="78dp"
+            tools:layout_editor_absoluteY="126dp" />
+
+        <Button
+            android:id="@+id/inscription"
+            android:layout_width="225dp"
+            android:layout_height="75dp"
+            android:backgroundTint="#1976D2"
+            android:text="S'inscrire"
+            android:textColor="#FFFFFF"
+            tools:layout_editor_absoluteX="93dp"
+            tools:layout_editor_absoluteY="554dp" />
+
+        <Button
+            android:id="@+id/connection"
+            android:layout_width="225dp"
+            android:layout_height="75dp"
+            android:backgroundTint="#1976D2"
+            android:text="Se connecter"
+            android:textColor="#FFFFFF"
+            tools:layout_editor_absoluteX="89dp"
+            tools:layout_editor_absoluteY="459dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="255dp"
+        android:layout_height="42dp"
+        android:ems="10"
+        android:hint="Veuillez informer votre mot de passe"
+        android:inputType="textEmailAddress"
+        android:textColor="#1976D2"
+        android:textStyle="normal|italic"
+        tools:layout_editor_absoluteX="89dp"
+        tools:layout_editor_absoluteY="286dp" />
+
+    <TextView
+        android:id="@+id/text_passworld"
+        android:layout_width="352dp"
+        android:layout_height="46dp"
+        android:background="#FFFFFF"
+        android:text="Mot de passe:"
+        android:textSize="25sp"
+        android:textStyle="normal|italic"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="211dp" />
+
+    <TextView
+        android:id="@+id/text_email"
+        android:layout_width="352dp"
+        android:layout_height="46dp"
+        android:background="#FFFFFF"
+        android:text="Adresse email:"
+        android:textSize="25sp"
+        android:textStyle="normal|italic"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="62dp" />
+
+    <EditText
+        android:id="@+id/email_address"
+        android:layout_width="255dp"
+        android:layout_height="42dp"
+        android:ems="10"
+        android:hint="Veuillez informer votre adresse email"
+        android:inputType="textEmailAddress"
+        android:textColor="#1976D2"
+        android:textStyle="normal|italic"
+        tools:layout_editor_absoluteX="78dp"
+        tools:layout_editor_absoluteY="126dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
