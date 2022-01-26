@@ -99,6 +99,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 return true;
             case R.id.menu_map_evenement:
                 return true;
+            case R.id.menu_map_connexion:
+                return true;
             case R.id.menu_map_mon_profil:
                 return true;
             default:
@@ -111,8 +113,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         startActivity(intent);
     }
 
-    public void disconnect(MenuItem item) {
-        //item déconnection
+    public void connect(MenuItem item) {
+        //item de connexion ou inscription
+        Intent intent = new Intent(MapsActivity.this, LoginActivity.class);
+        startActivity(intent);
     }
 
 }

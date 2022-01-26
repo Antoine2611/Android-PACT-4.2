@@ -28,11 +28,11 @@
         android:title="Mon profil" />
 
     <item
-        android:id="@+id/menu_map_deconnexion"
+        android:id="@+id/menu_map_connexion"
         android:orderInCategory="100"
         app:showAsAction="never"
-        android:onClick="disconnect"
-        android:title="Déconnexion" />
+        android:onClick="connect"
+        android:title="Connexion" />
 
 
 </menu>
