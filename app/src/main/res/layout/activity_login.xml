@@ -12,7 +12,7 @@
         tools:context=".LoginActivity">
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/passworld"
             android:layout_width="255dp"
             android:layout_height="42dp"
             android:ems="10"
@@ -21,10 +21,11 @@
             android:textColor="#1976D2"
             android:textStyle="normal|italic"
             tools:layout_editor_absoluteX="89dp"
-            tools:layout_editor_absoluteY="286dp" />
+            tools:layout_editor_absoluteY="286dp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/text_passworld"
+            android:id="@+id/passworld_text"
             android:layout_width="352dp"
             android:layout_height="46dp"
             android:background="#FFFFFF"
@@ -32,10 +33,11 @@
             android:textSize="25sp"
             android:textStyle="normal|italic"
             tools:layout_editor_absoluteX="30dp"
-            tools:layout_editor_absoluteY="211dp" />
+            tools:layout_editor_absoluteY="211dp"
+            tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/text_email"
+            android:id="@+id/email_text"
             android:layout_width="352dp"
             android:layout_height="46dp"
             android:background="#FFFFFF"
@@ -43,10 +45,11 @@
             android:textSize="25sp"
             android:textStyle="normal|italic"
             tools:layout_editor_absoluteX="30dp"
-            tools:layout_editor_absoluteY="62dp" />
+            tools:layout_editor_absoluteY="62dp"
+            tools:ignore="MissingConstraints" />
 
         <EditText
-            android:id="@+id/email_address"
+            android:id="@+id/email_adress"
             android:layout_width="255dp"
             android:layout_height="42dp"
             android:ems="10"
@@ -55,7 +58,8 @@
             android:textColor="#1976D2"
             android:textStyle="normal|italic"
             tools:layout_editor_absoluteX="78dp"
-            tools:layout_editor_absoluteY="126dp" />
+            tools:layout_editor_absoluteY="126dp"
+            tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/inscription"
@@ -65,7 +69,8 @@
             android:text="S'inscrire"
             android:textColor="#FFFFFF"
             tools:layout_editor_absoluteX="93dp"
-            tools:layout_editor_absoluteY="554dp" />
+            tools:layout_editor_absoluteY="554dp"
+            tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/connection"
@@ -75,54 +80,9 @@
             android:text="Se connecter"
             android:textColor="#FFFFFF"
             tools:layout_editor_absoluteX="89dp"
-            tools:layout_editor_absoluteY="459dp" />
+            tools:layout_editor_absoluteY="459dp"
+            tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="255dp"
-        android:layout_height="42dp"
-        android:ems="10"
-        android:hint="Veuillez informer votre mot de passe"
-        android:inputType="textEmailAddress"
-        android:textColor="#1976D2"
-        android:textStyle="normal|italic"
-        tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="286dp" />
-
-    <TextView
-        android:id="@+id/text_passworld"
-        android:layout_width="352dp"
-        android:layout_height="46dp"
-        android:background="#FFFFFF"
-        android:text="Mot de passe:"
-        android:textSize="25sp"
-        android:textStyle="normal|italic"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="211dp" />
-
-    <TextView
-        android:id="@+id/text_email"
-        android:layout_width="352dp"
-        android:layout_height="46dp"
-        android:background="#FFFFFF"
-        android:text="Adresse email:"
-        android:textSize="25sp"
-        android:textStyle="normal|italic"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="62dp" />
-
-    <EditText
-        android:id="@+id/email_address"
-        android:layout_width="255dp"
-        android:layout_height="42dp"
-        android:ems="10"
-        android:hint="Veuillez informer votre adresse email"
-        android:inputType="textEmailAddress"
-        android:textColor="#1976D2"
-        android:textStyle="normal|italic"
-        tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="126dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
