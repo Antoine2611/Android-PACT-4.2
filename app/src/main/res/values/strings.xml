@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">SportBox</string>
+    <string name="map_id">858977531d45ecd0</string>
     <string name="title_activity_maps">SportBox Activity</string>
     <string name="recherche">Recherche</string>
     <string name="evenements">Évènements</string>
@@ -12,6 +13,10 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="subscribe">Réserver</string>
+    <string name="default_desc">Aucune information sur la présence d\'infrastructure ici.</string>
+    <string name="telecom_desc">Aucune infrastructure sportive ici !</string>
+    <string name="gym_ensta_desc">Terrains de tennis/volley/basket/handball/futsal/escalade disponibles en intérieur !</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>

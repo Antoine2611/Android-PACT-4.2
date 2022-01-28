@@ -3,13 +3,19 @@ package fr.enst.pact42.sportbox;
 import static fr.enst.pact42.sportbox.R.menu.*;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -32,6 +38,7 @@ import fr.enst.pact42.sportbox.databinding.ActivityMapsBinding;
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
+    private static boolean goToMarkerActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +69,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap = googleMap;
         mMap.setOnMarkerClickListener(this);
 
-        boolean success = googleMap.setMapStyle(new MapStyleOptions(getResources()
+        googleMap.setMapStyle(new MapStyleOptions(getResources()
                 .getString(R.string.style_json)));
 
         mMap.addMarker(new MarkerOptions().position(new LatLng(48.71201566810882, 2.2149531159803737)).title("Gymnase de l'ENSTA").icon(BitmapDescriptorFactory.defaultMarker(0)));
@@ -73,14 +80,37 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(tetechLatLng, mMap.getMaxZoomLevel()-5));
     }
 
-    @Override
+    public static class MarkerDialogFragment extends DialogFragment {
+
+        Intent markerActivity;
+
+        public MarkerDialogFragment(Intent markerActivity) {
+            this.markerActivity = markerActivity;
+        }
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            return new AlertDialog.Builder(requireContext())
+                    .setMessage(getString(R.string.default_desc))
+                    .setPositiveButton(getString(R.string.subscribe), (dialog, which) -> {
+                        startActivity(markerActivity);
+                        dismiss();
+                    })
+                    .create();
+        }
+
+        public static String TAG = "MarkerDialog";
+
+    }
+
     public boolean onMarkerClick(Marker marker) {
         Random r = new Random();
         int colorHue = r.nextInt(360);
         marker.setIcon(BitmapDescriptorFactory.defaultMarker(colorHue));
 
-        Intent intent = new Intent(MapsActivity.this, InfoCasierActivity.class);
-        startActivity(intent);
+        new MarkerDialogFragment(new Intent(MapsActivity.this, InfoCasierActivity.class)).show(
+                getSupportFragmentManager(), MarkerDialogFragment.TAG);
+
         return false;
     }
 
