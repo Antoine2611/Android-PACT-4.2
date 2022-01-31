@@ -75,7 +75,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap.addMarker(new MarkerOptions().position(new LatLng(48.71201566810882, 2.2149531159803737)).title("Gymnase de l'ENSTA").icon(BitmapDescriptorFactory.defaultMarker(0)));
 
         LatLng tetechLatLng = new LatLng(48.71256936082508, 2.200860956792873);
-        mMap.addMarker(new MarkerOptions().position(tetechLatLng).title("Télécom Paris").icon(BitmapDescriptorFactory.defaultMarker(150)));
+        mMap.addMarker(new MarkerOptions().position(tetechLatLng).title("Télécom Paris").icon(BitmapDescriptorFactory.defaultMarker(0)));
+
+        mMap.addMarker(new MarkerOptions().position(new LatLng(48.71523056366527, 2.211139913619598)).title("Coupe de l'X").icon(BitmapDescriptorFactory.defaultMarker(150)));
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(tetechLatLng, mMap.getMaxZoomLevel()-5));
     }
@@ -83,15 +85,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public static class MarkerDialogFragment extends DialogFragment {
 
         Intent markerActivity;
+        String marker_desc;
 
-        public MarkerDialogFragment(Intent markerActivity) {
+        public MarkerDialogFragment(Intent markerActivity, String marker_desc) {
             this.markerActivity = markerActivity;
+            this.marker_desc = marker_desc;
         }
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             return new AlertDialog.Builder(requireContext())
-                    .setMessage(getString(R.string.default_desc))
+                    .setMessage(marker_desc)
                     .setPositiveButton(getString(R.string.subscribe), (dialog, which) -> {
                         startActivity(markerActivity);
                         dismiss();
@@ -104,12 +108,30 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     public boolean onMarkerClick(Marker marker) {
-        Random r = new Random();
-        int colorHue = r.nextInt(360);
-        marker.setIcon(BitmapDescriptorFactory.defaultMarker(colorHue));
 
-        new MarkerDialogFragment(new Intent(MapsActivity.this, InfoCasierActivity.class)).show(
-                getSupportFragmentManager(), MarkerDialogFragment.TAG);
+        System.out.println(marker.getId());
+
+        if(marker.getId().equals("m0")) {
+
+            new MarkerDialogFragment(new Intent(MapsActivity.this, InfoCasierActivity.class), getString(R.string.gym_ensta_desc)).show(
+                    getSupportFragmentManager(), MarkerDialogFragment.TAG);
+
+        }
+
+        if(marker.getId().equals("m1")) {
+
+            new MarkerDialogFragment(new Intent(MapsActivity.this, InfoCasierActivity.class), getString(R.string.telecom_desc)).show(
+                    getSupportFragmentManager(), MarkerDialogFragment.TAG);
+
+        }
+
+        if(marker.getId().equals("m2")) {
+
+            new MarkerDialogFragment(new Intent(MapsActivity.this, InfoEventActivity.class), getString(R.string.coupe_x_desc)).show(
+                    getSupportFragmentManager(), MarkerDialogFragment.TAG);
+
+        }
+
 
         return false;
     }

@@ -17,8 +17,11 @@
     <string name="default_desc">Aucune information sur la présence d\'infrastructure ici.</string>
     <string name="telecom_desc">Aucune infrastructure sportive ici !</string>
     <string name="gym_ensta_desc">Terrains de tennis/volley/basket/handball/futsal/escalade disponibles en intérieur !</string>
+    <string name="coupe_x_desc">Toutes les écoles d\'ingénieurs de l\'IPP s\'affronte, venez y participer ou regarder !</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="unlock_button">Déverouiller</string>
+    <string name="report_button">Signaler</string>
 </resources>

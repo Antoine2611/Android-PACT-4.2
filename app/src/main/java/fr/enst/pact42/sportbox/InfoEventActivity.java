@@ -14,7 +14,7 @@ public class InfoEventActivity extends AppCompatActivity {
     private TextView participations;
     private TextView level;
     private Button participate;
-    private EventModel event =new EventModel("Cours de Yoga", "Télécom Paris", "débutant", 15);
+    private EventModel event =new EventModel("Cours de Yoga", "Télécom Paris", "Débutant", 15);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
