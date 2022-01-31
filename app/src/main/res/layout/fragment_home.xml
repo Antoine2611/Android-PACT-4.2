@@ -59,7 +59,9 @@
                     android:layout_height="wrap_content"
                     android:text="Email"
                     android:textColor="@color/teal_700"
-                    android:textSize="13sp" />
+                    android:textSize="13sp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -67,21 +69,24 @@
                     android:text="user@mail.com"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    android:layout_marginBottom="20dp"/>
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginStart="15dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Téléphone"
                     android:textColor="@color/teal_700"
-                    android:textSize="13sp" />
+                    android:textSize="13sp"
+                    android:layout_marginStart="15dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0673823638"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:layout_marginStart="15dp"/>
 
             </LinearLayout>
         </LinearLayout>
