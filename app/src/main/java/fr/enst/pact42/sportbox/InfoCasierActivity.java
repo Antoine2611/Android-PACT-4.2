@@ -1,11 +1,11 @@
 package fr.enst.pact42.sportbox;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class InfoCasierActivity extends AppCompatActivity {
 
@@ -14,7 +14,7 @@ public class InfoCasierActivity extends AppCompatActivity {
     private TextView localisation;
     private Button unlock;
     private Button report;
-    private CasierModel casier = new CasierModel ("Ballon de foot", "Correct", "Télécom Paris");
+    private CasierModel casier = new CasierModel ("Ballon de foot", "Correct", "Télécom Paris", true);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -7,10 +7,11 @@ public class CasierModel {
     private String localisation;
     private boolean access;
 
-    public CasierModel(String typeMaterial, String condition, String localisation){
+    public CasierModel(String typeMaterial, String condition, String localisation, boolean access){
         this.typeMaterial=typeMaterial;
         this.condition=condition;
         this.localisation=localisation;
+        this.access=access;
     }
      public String getTypeMaterial(){
         return typeMaterial;
