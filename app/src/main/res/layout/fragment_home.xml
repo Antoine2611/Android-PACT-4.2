@@ -24,7 +24,7 @@
                 android:layout_height="120dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
-                android:src="@drawable/ic_baseline_person_24" />
+                android:src="@drawable/ic_thomas_robert" />
             
         </RelativeLayout>
         
@@ -33,9 +33,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/image_bande_mon_profil"
             android:layout_centerHorizontal="true"
-            android:text="User"
+            android:text="Thomas Robert"
             android:textSize="36sp"
-            android:fontFamily="sans-serif-medium">
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginBottom="20dp">
         </TextView>
 
     </RelativeLayout>
@@ -66,7 +67,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="user@mail.com"
+                    android:text="thomas.robert@mail.com"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:layout_marginBottom="20dp"
@@ -86,7 +87,25 @@
                     android:text="0673823638"
                     android:textColor="@color/black"
                     android:textSize="18sp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="20dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Adresse"
+                    android:textColor="@color/teal_700"
+                    android:textSize="13sp"
                     android:layout_marginStart="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="19, place Margurite Perey, 91120"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="20dp"/>
 
             </LinearLayout>
         </LinearLayout>
