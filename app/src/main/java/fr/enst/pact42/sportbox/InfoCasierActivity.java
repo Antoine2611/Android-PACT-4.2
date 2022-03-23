@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 public class InfoCasierActivity extends AppCompatActivity {
 
     private TextView typeMaterial;
@@ -14,6 +16,7 @@ public class InfoCasierActivity extends AppCompatActivity {
     private TextView localisation;
     private Button unlock;
     private Button report;
+    private ArrayList<CasierModel> casiers;
     private CasierModel casier = new CasierModel ("Ballon de foot", "Correct", "Télécom Paris", true);
 
     @Override
