@@ -57,7 +57,7 @@ public class InfoCasierActivity extends AppCompatActivity implements AdapterView
     ArrayList<String> options= new ArrayList<String>();
 
     for (CasierModel c: casiers){
-        options.add(c.getTypeMaterial());
+        options.add("Choix du matérial: " + c.getTypeMaterial());
     }
     ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,options);
     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
