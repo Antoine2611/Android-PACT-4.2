@@ -29,6 +29,7 @@ import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import fr.enst.pact42.sportbox.databinding.ActivityMapsBinding;
@@ -40,6 +41,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private ActivityMapsBinding binding;
     private static boolean goToMarkerActivity;
     private Profil profil;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +84,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap.addMarker(new MarkerOptions().position(new LatLng(48.71523056366527, 2.211139913619598)).title("Coupe de l'X").icon(BitmapDescriptorFactory.defaultMarker(150)));
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(tetechLatLng, mMap.getMaxZoomLevel()-5));
+
+
+
     }
 
     public static class MarkerDialogFragment extends DialogFragment {
@@ -146,6 +152,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
+            case R.id.menu_map_marker_events:
+                return true;
+            case R.id.menu_map_marker_casiers:
+                markerCasiers();
+                return true;
             case R.id.menu_map_recherche:
                 return true;
             case R.id.menu_map_casier:
@@ -185,5 +196,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             item.setTitle("Deconnexion");
         }
     }
+
+    public void markerCasiers(){
+        mMap.clear();
+    }
+    public void markerEvents(){
+
+    }
+
 
 }

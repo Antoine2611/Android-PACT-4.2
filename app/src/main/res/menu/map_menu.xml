@@ -34,5 +34,16 @@
         android:onClick="connect"
         android:title="Connexion" />
 
+    <item
+        android:id="@+id/menu_map_marker_casiers"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_baseline_vpn_key_24"
+        android:title="Marqueur Casiers" />
+
+    <item
+        android:id="@+id/menu_map_marker_events"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_baseline_calendar_today_24"
+        android:title="Marqueur Events" />
 
 </menu>
