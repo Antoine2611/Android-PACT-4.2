@@ -2,6 +2,7 @@ package fr.enst.pact42.sportbox;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -11,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-public class InfoCasierActivity extends AppCompatActivity {
+public class InfoCasierActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private Spinner spinner;
     private TextView typeMaterial;
@@ -61,6 +62,7 @@ public class InfoCasierActivity extends AppCompatActivity {
     ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,options);
     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
     spinner.setAdapter(adapter);
+    spinner.setOnItemSelectedListener(this);
     }
 
     public void updateActivity(){
@@ -72,4 +74,14 @@ public class InfoCasierActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        casier=casiers.get(position);
+        updateActivity();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }
