@@ -8,11 +8,11 @@ public class EventModel {
     private int nbParticipations;
     private int limitParticipations;
 
-    public EventModel(String typeEvent, String localisation, String level, int participations){
+    public EventModel(String typeEvent, String localisation, String level, int nbParticipants, int participations){
         this.typeEvent=typeEvent;
         this.localisation=localisation;
         this.level=level;
-        nbParticipations=0;
+        this.nbParticipations=nbParticipants;
         limitParticipations=participations;
     }
     public boolean isAvailable(){
