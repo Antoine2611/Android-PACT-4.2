@@ -41,6 +41,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private ActivityMapsBinding binding;
     private static boolean goToMarkerActivity;
     private Profil profil;
+    private ArrayList<MarkerOptions> markerCasiers;
+    private ArrayList<MarkerOptions> markerEvents;
 
 
 
@@ -76,14 +78,22 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         googleMap.setMapStyle(new MapStyleOptions(getResources()
                 .getString(R.string.style_json)));
 
+        markerCasiers=new ArrayList<MarkerOptions>();
+        markerEvents=new ArrayList<MarkerOptions>();
+        markerCasiers.add(new MarkerOptions().position(new LatLng(48.71256936082508, 2.200860956792873)).title("Télécom Paris").icon(BitmapDescriptorFactory.defaultMarker(0)));
+        markerEvents.add(new MarkerOptions().position(new LatLng(48.71201566810882, 2.2149531159803737)).title("Gymnase de l'ENSTA").icon(BitmapDescriptorFactory.defaultMarker(0)));
+        markerEvents.add(new MarkerOptions().position(new LatLng(48.71523056366527, 2.211139913619598)).title("Coupe de l'X").icon(BitmapDescriptorFactory.defaultMarker(150)));
+        markerCasiers();
+        /*
         mMap.addMarker(new MarkerOptions().position(new LatLng(48.71201566810882, 2.2149531159803737)).title("Gymnase de l'ENSTA").icon(BitmapDescriptorFactory.defaultMarker(0)));
 
         LatLng tetechLatLng = new LatLng(48.71256936082508, 2.200860956792873);
         mMap.addMarker(new MarkerOptions().position(tetechLatLng).title("Télécom Paris").icon(BitmapDescriptorFactory.defaultMarker(0)));
 
         mMap.addMarker(new MarkerOptions().position(new LatLng(48.71523056366527, 2.211139913619598)).title("Coupe de l'X").icon(BitmapDescriptorFactory.defaultMarker(150)));
+        */
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(tetechLatLng, mMap.getMaxZoomLevel()-5));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(48.71256936082508, 2.200860956792873), mMap.getMaxZoomLevel()-5));
 
 
 
@@ -153,6 +163,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.menu_map_marker_events:
+                markerEvents();
                 return true;
             case R.id.menu_map_marker_casiers:
                 markerCasiers();
@@ -199,9 +210,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     public void markerCasiers(){
         mMap.clear();
+        for (MarkerOptions marker: markerCasiers){
+            mMap.addMarker(marker);
+        }
     }
     public void markerEvents(){
+        mMap.clear();
 
+        for (MarkerOptions marker: markerEvents){
+            mMap.addMarker(marker);
+        }
     }
 
 
