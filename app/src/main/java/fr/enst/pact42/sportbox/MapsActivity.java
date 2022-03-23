@@ -40,7 +40,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
     private static boolean goToMarkerActivity;
-    private Profil profil;
+    private Profil profil=null;
     private ArrayList<MarkerOptions> markerCasiers;
     private ArrayList<MarkerOptions> markerEvents;
 
@@ -190,7 +190,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     public void connect(MenuItem item) {
         //item de connexion/inscription ou déconnexion
-        if (profil.equals(null)){
+        if (profil==null){
             Intent intent = new Intent(MapsActivity.this, LoginActivity.class);
             startActivity(intent);
         } else {
@@ -201,7 +201,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     public void changeItemConnect(){
         MenuItem item= findViewById(R.id.menu_map_connexion);
-        if(profil.equals(null)){
+        if(profil==null){
             item.setTitle("Connexion");
         }else{
             item.setTitle("Deconnexion");
