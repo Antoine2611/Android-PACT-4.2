@@ -41,6 +41,7 @@ public class AsyncHttps extends AsyncTask<String,Integer, JSONObject> {
         try {
             url = new URL(strings[0]);
             urlConnection = (HttpURLConnection) url.openConnection(); // Open
+            urlConnection.setRequestMethod("GET");
             InputStream in = new BufferedInputStream(urlConnection.getInputStream()); // Stream
             publishProgress(2);
             result = readStream(in); // Read stream

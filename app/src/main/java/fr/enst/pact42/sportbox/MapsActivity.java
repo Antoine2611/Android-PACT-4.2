@@ -83,7 +83,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         googleMap.setMapStyle(new MapStyleOptions(getResources()
                 .getString(R.string.style_json)));
 
-        markerCasiers=new ArrayList<MarkerOptions>();
+        markerCasiers=new ArrayList<
+                MarkerOptions>();
         markerEvents=new ArrayList<MarkerOptions>();
         markerCasiers.add(new MarkerOptions().position(new LatLng(48.71256936082508, 2.200860956792873)).title("Télécom Paris").icon(BitmapDescriptorFactory.defaultMarker(0)));
         markerEvents.add(new MarkerOptions().position(new LatLng(48.71201566810882, 2.2149531159803737)).title("Gymnase de l'ENSTA").icon(BitmapDescriptorFactory.defaultMarker(0)));
@@ -174,6 +175,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 markerCasiers();
                 return true;
             case R.id.menu_map_recherche:
+
                 /* code test pour récupérer les casiers à partir de requête https*/
                 AsyncHttps https= new AsyncHttps(MapsActivity.this);
                 https.execute("https://sportbox.r2.enst.fr/api/getCaisses");
