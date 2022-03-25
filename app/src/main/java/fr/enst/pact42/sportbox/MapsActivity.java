@@ -13,6 +13,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -57,6 +58,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+
     }
 
     /**
@@ -169,6 +172,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 markerCasiers();
                 return true;
             case R.id.menu_map_recherche:
+                AsyncHttps https= new AsyncHttps(MapsActivity.this);
+                String resultRequest=https.execute("https://sportbox.r2.enst.fr/api/getCaisses").toString();
+                Log.i("info2", resultRequest);
                 return true;
             case R.id.menu_map_casier:
                 return true;

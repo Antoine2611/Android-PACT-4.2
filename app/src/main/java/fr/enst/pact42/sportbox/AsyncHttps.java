@@ -1,14 +1,17 @@
 package fr.enst.pact42.sportbox;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -36,6 +39,7 @@ public class AsyncHttps extends AsyncTask<String,Integer, JSONObject> {
             InputStream in = new BufferedInputStream(urlConnection.getInputStream()); // Stream
             publishProgress(2);
             stringResult = readStream(in); // Read stream
+            Log.i("info1",stringResult);
         }
         catch (MalformedURLException e) { e.printStackTrace(); }
         catch (IOException e) { e.printStackTrace(); }
@@ -52,8 +56,14 @@ public class AsyncHttps extends AsyncTask<String,Integer, JSONObject> {
         return result;
     }
 
-    public String readStream (InputStream in){
-        return "OK";
+    public String readStream (InputStream in) throws IOException{
+        StringBuilder sb = new StringBuilder();
+        BufferedReader r = new BufferedReader(new InputStreamReader(in),1000);
+        for (String line = r.readLine(); line != null; line =r.readLine()){
+            sb.append(line);
+        }
+        in.close();
+        return sb.toString();
     }
 
 }
