@@ -5,6 +5,7 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
@@ -19,11 +20,15 @@ import java.net.URL;
 public class AsyncHttps extends AsyncTask<String,Integer, JSONObject> {
 
     private AppCompatActivity activity;
+    private JSONObject lastResult;
 
     public AsyncHttps(AppCompatActivity activity){
         this.activity=activity;
     }
 
+    public JSONObject getLastResult(){
+        return lastResult;
+    }
     @Override
     protected JSONObject doInBackground(String... strings) {
         publishProgress(1);
@@ -31,15 +36,16 @@ public class AsyncHttps extends AsyncTask<String,Integer, JSONObject> {
 
         URL url = null;
         HttpURLConnection urlConnection = null;
-        String stringResult = null;
+        JSONObject result=null;
 
         try {
             url = new URL(strings[0]);
             urlConnection = (HttpURLConnection) url.openConnection(); // Open
             InputStream in = new BufferedInputStream(urlConnection.getInputStream()); // Stream
             publishProgress(2);
-            stringResult = readStream(in); // Read stream
-            Log.i("info1",stringResult);
+            result = readStream(in); // Read stream
+
+
         }
         catch (MalformedURLException e) { e.printStackTrace(); }
         catch (IOException e) { e.printStackTrace(); }
@@ -48,22 +54,33 @@ public class AsyncHttps extends AsyncTask<String,Integer, JSONObject> {
 
         publishProgress(4);
 
-        JSONObject result=null;
-        try{
-            result=new JSONObject (stringResult);
-        }catch (Exception e){ e.printStackTrace();}
 
+        lastResult=result;
         return result;
     }
 
-    public String readStream (InputStream in) throws IOException{
+    public JSONObject readStream (InputStream in) throws IOException{
         StringBuilder sb = new StringBuilder();
         BufferedReader r = new BufferedReader(new InputStreamReader(in),1000);
         for (String line = r.readLine(); line != null; line =r.readLine()){
-            sb.append(line);
+            sb.append(line+ "\n");
         }
         in.close();
-        return sb.toString();
+        String s = sb.toString();
+        int start=s.indexOf("["), end=s.indexOf("]");
+        String s1= s.substring(0, start)+""+s.substring(end+1);
+        String data= s.substring(start, end+1);
+
+        JSONObject result=null;
+        try {
+            result= new JSONObject (s1);
+            result.remove("data");
+            result.put("data",data);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return result;
     }
 
 }

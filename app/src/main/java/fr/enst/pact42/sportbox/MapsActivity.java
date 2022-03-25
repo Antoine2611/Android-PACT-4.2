@@ -30,6 +30,8 @@ import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -172,9 +174,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 markerCasiers();
                 return true;
             case R.id.menu_map_recherche:
+                /* code test pour récupérer les casiers à partir de requête https*/
                 AsyncHttps https= new AsyncHttps(MapsActivity.this);
-                String resultRequest=https.execute("https://sportbox.r2.enst.fr/api/getCaisses").toString();
+                https.execute("https://sportbox.r2.enst.fr/api/getCaisses");
+                String resultRequest="Nope";
+                try{resultRequest = https.get().getString("data");}
+                catch (Exception e){e.printStackTrace();}
                 Log.i("info2", resultRequest);
+
                 return true;
             case R.id.menu_map_casier:
                 return true;
