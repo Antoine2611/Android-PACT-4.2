@@ -44,10 +44,16 @@ public class AsyncHttps extends AsyncTask<String,Integer, JSONObject> {
 
         publishProgress(4);
 
-        return null;
+        JSONObject result=null;
+        try{
+            result=new JSONObject (stringResult);
+        }catch (Exception e){ e.printStackTrace();}
+
+        return result;
     }
 
     public String readStream (InputStream in){
         return "OK";
     }
+
 }
