@@ -100,7 +100,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         catch (Exception e){e.printStackTrace();}
 
         for (JSONObject c: casiers){
-            markerCasiers.add(new MarkerOptions().position(new LatLng(, 2.200860956792873)).title("Télécom Paris").icon(BitmapDescriptorFactory.defaultMarker(0)))
+            markerCasiers.add(new MarkerOptions().position(new LatLng(c.getInt("latitude"), c.getInt("longitude")).title(c.getString("Contenu").icon(BitmapDescriptorFactory.defaultMarker( if (c.getString("Ouvreur")=="null"){0} else {150})));
+        }
+
+        for (JSONObject e: events){
+            markerEvents.add(new MarkerOptions().position(new LatLng(e.getInt("latitude"), e.getInt("longitude")).title(c.getString("?").icon(BitmapDescriptorFactory.defaultMarker(0)));
         }
         */
 
