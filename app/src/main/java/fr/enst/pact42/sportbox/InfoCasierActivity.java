@@ -33,10 +33,10 @@ public class InfoCasierActivity extends AppCompatActivity implements AdapterView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_casier);
-        casier = new CasierModel ("Ballon de foot", "Correct", "Télécom Paris", true);
+        casier = new CasierModel (1,"Ballon de foot", "Correct", "Telecom Paris",43, 42, true);
         casiers = new ArrayList<CasierModel>();
         casiers.add(casier);
-        casiers.add(new CasierModel ("Ballon de Basket", "Mauvais", "Télécom Paris", true));
+        casiers.add(new CasierModel (2,"Ballon de Basket", "Mauvais", "Télécom Paris",43,2, true));
 
     typeMaterial = findViewById(R.id.type_material);
     condition=findViewById(R.id.condition);

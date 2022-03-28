@@ -30,6 +30,7 @@ import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -46,6 +47,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private Profil profil=null;
     private ArrayList<MarkerOptions> markerCasiers;
     private ArrayList<MarkerOptions> markerEvents;
+    private JSONArray casiers;
+    private JSONArray events;
 
 
 
@@ -83,13 +86,32 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         googleMap.setMapStyle(new MapStyleOptions(getResources()
                 .getString(R.string.style_json)));
 
-        markerCasiers=new ArrayList<
-                MarkerOptions>();
+        markerCasiers=new ArrayList<MarkerOptions>();
         markerEvents=new ArrayList<MarkerOptions>();
+
+        /*
+        AsyncHttps https= new AsyncHttps(MapsActivity.this);
+        https.execute("https://sportbox.r2.enst.fr/api/getCasiers");
+        try{casiers= new JSONArray(https.get().getString("data"));}
+        catch (Exception e){e.printStackTrace();}
+
+        https.execute("https://sportbox.r2.enst.fr/api/getEvents");
+        try{events= new JSONArray(https.get().getString("data"));}
+        catch (Exception e){e.printStackTrace();}
+
+        for (JSONObject c: casiers){
+            markerCasiers.add(new MarkerOptions().position(new LatLng(, 2.200860956792873)).title("Télécom Paris").icon(BitmapDescriptorFactory.defaultMarker(0)))
+        }
+        */
+
+
+
         markerCasiers.add(new MarkerOptions().position(new LatLng(48.71256936082508, 2.200860956792873)).title("Télécom Paris").icon(BitmapDescriptorFactory.defaultMarker(0)));
         markerEvents.add(new MarkerOptions().position(new LatLng(48.71201566810882, 2.2149531159803737)).title("Gymnase de l'ENSTA").icon(BitmapDescriptorFactory.defaultMarker(0)));
         markerEvents.add(new MarkerOptions().position(new LatLng(48.71523056366527, 2.211139913619598)).title("Coupe de l'X").icon(BitmapDescriptorFactory.defaultMarker(150)));
+
         markerCasiers();
+
         /*
         mMap.addMarker(new MarkerOptions().position(new LatLng(48.71201566810882, 2.2149531159803737)).title("Gymnase de l'ENSTA").icon(BitmapDescriptorFactory.defaultMarker(0)));
 
@@ -177,10 +199,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             case R.id.menu_map_recherche:
 
                 /* code test pour récupérer les casiers à partir de requête https*/
-                AsyncHttps https= new AsyncHttps(MapsActivity.this);
-                https.execute("https://sportbox.r2.enst.fr/api/getCaisses");
+                AsyncHttps https2= new AsyncHttps(MapsActivity.this);
+                https2.execute("https://sportbox.r2.enst.fr/api/getCasiers");
                 String resultRequest="Nope";
-                try{resultRequest = https.get().getString("data");}
+                try{resultRequest = https2.get().getString("data");}
                 catch (Exception e){e.printStackTrace();}
                 Log.i("info2", resultRequest);
 
