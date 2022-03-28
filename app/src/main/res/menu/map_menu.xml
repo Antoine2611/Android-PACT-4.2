@@ -6,19 +6,19 @@
         android:id="@+id/menu_map_recherche"
         app:showAsAction="always"
         android:icon="@drawable/ic_search"
-        android:title="@string/recherche"/>
+        android:title="Recherche"/>
 
     <item
         android:id="@+id/menu_map_evenement"
         android:orderInCategory="100"
         app:showAsAction="never"
-        android:title="@string/evenements" />
+        android:title="Évenements" />
 
     <item
         android:id="@+id/menu_map_casier"
         android:orderInCategory="100"
         app:showAsAction="never"
-        android:title="@string/casiers" />
+        android:title="Casiers" />
 
     <item
         android:id="@+id/menu_map_mon_profil"
