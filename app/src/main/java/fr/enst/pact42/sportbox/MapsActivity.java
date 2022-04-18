@@ -51,6 +51,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private ArrayList<MarkerOptions> markerEvents;
     private ArrayList<JSONObject> casiers;
     private ArrayList<JSONObject> events;
+    private boolean modeCasier;
 
 
 
@@ -195,7 +196,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     public boolean onMarkerClick(Marker marker) {
-
+        /*
         System.out.println(marker.getId());
 
         if(marker.getId().equals("m0")) {
@@ -218,7 +219,22 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     getSupportFragmentManager(), MarkerDialogFragment.TAG);
 
         }
+        */
+        Intent intent;
+        String message;
+        ArrayList<JSONObject> array;
+        if (modeCasier){
+            intent= new Intent(MapsActivity.this, InfoCasierActivity.class);
+            message= "Casiers situés à ";
+            array=casiers;
 
+        } else{
+            intent= new Intent(MapsActivity.this, InfoEventActivity.class);
+            message="Evenements situés à";
+            array=events;
+        }
+
+        new MarkerDialogFragment(intent,message+ "latitude : "+ marker.getPosition().latitude+" et longitude: "+marker.getPosition().longitude).show(getSupportFragmentManager(), MarkerDialogFragment.TAG);
 
         return false;
     }
@@ -266,13 +282,18 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     Log.i("info0",resultRequest);
                     JSONObject o= new JSONObject(resultRequest);
                     resultRequest2= o.getString("Contenu");
+                    Log.i("info2", resultRequest2);
+                    o=new JSONObject(o.toString());
+                    resultRequest2= o.getString("Contenu");
+                    Log.i("info3", resultRequest2);
+
                 }
                 catch (Exception e){
                 }
                 if (resultRequest1==null){
                     Log.i("info1","mauvaise conversion");}
-                Log.i("info2", resultRequest2);
                 */
+
                 return true;
             case R.id.menu_map_casier:
                 return true;
@@ -314,13 +335,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     public void markerCasiers(){
         mMap.clear();
+        modeCasier=true;
         for (MarkerOptions marker: markerCasiers){
             mMap.addMarker(marker);
         }
     }
     public void markerEvents(){
         mMap.clear();
-
+        modeCasier=false;
         for (MarkerOptions marker: markerEvents){
             mMap.addMarker(marker);
         }
