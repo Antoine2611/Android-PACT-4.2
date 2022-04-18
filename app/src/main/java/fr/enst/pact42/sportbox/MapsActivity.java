@@ -49,8 +49,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private Profil profil=null;
     private ArrayList<MarkerOptions> markerCasiers;
     private ArrayList<MarkerOptions> markerEvents;
-    private JSONArray casiers;
-    private JSONArray events;
+    private ArrayList<JSONObject> casiers;
+    private ArrayList<JSONObject> events;
 
 
 
@@ -88,45 +88,66 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         googleMap.setMapStyle(new MapStyleOptions(getResources()
                 .getString(R.string.style_json)));
 
+        casiers=new ArrayList<JSONObject>();
+        events= new ArrayList<JSONObject>();
         markerCasiers=new ArrayList<MarkerOptions>();
         markerEvents=new ArrayList<MarkerOptions>();
 
-        /*
+
         AsyncHttps https= new AsyncHttps(MapsActivity.this);
         AsyncHttps https2= new AsyncHttps(MapsActivity.this);
         https.execute("https://sportbox.r2.enst.fr/api/getCasiers");
         https2.execute("https://sportbox.r2.enst.fr/api/getEvents");
 
-        try{casiers= new JSONArray(https.get().getString("data"));
-            events= new JSONArray(https2.get().getString("data"));}
+        try{
+        String stringCasiers= https.get().getString("data").replace("\\","");
+        String stringEvents=https2.get().getString("data").replace("\\","");
+        int start=0;
+        int end =0;
+        while (stringCasiers.indexOf("{")!=(-1)){
+            start= stringCasiers.indexOf("{");
+            end= stringCasiers.indexOf("}");
+            String stringJson = stringCasiers.substring(start, end+1);
+            stringCasiers= stringCasiers.substring(end+1);
+            casiers.add(new JSONObject(stringJson));
+        }
+        start =0;
+        end=0;
+
+        while (stringEvents.indexOf("{")!=(-1)){
+            start= stringEvents.indexOf("{");
+            end= stringEvents.indexOf("}");
+            String stringJson = stringEvents.substring(start, end+1);
+            stringEvents= stringEvents.substring(end+1);
+            events.add(new JSONObject(stringJson));
+        }
+
+        }
         catch (Exception e){e.printStackTrace();}
 
-        for (int i=0; i<casiers.length(); i++){
-            JSONObject c = null;
+        for (JSONObject c: casiers){
+
             try {
-                c = casiers.getJSONObject(i);
-                markerCasiers.add(new MarkerOptions().position(new LatLng(c.getInt("lat"), c.getInt("long"))).title(c.getString("Contenu")).icon(BitmapDescriptorFactory.defaultMarker(0)));
+                markerCasiers.add(new MarkerOptions().position(new LatLng(c.getDouble("lat"), c.getDouble("long"))).title(c.getString("Contenu")).icon(BitmapDescriptorFactory.defaultMarker(0)));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
 
         }
 
-        for (int i=0; i<events.length(); i++){
-            JSONObject e =null;
+        for (JSONObject e: events){
             try {
-                e=events.getJSONObject(i);
-                markerEvents.add(new MarkerOptions().position(new LatLng(e.getInt("lat"), e.getInt("long"))).title(e.getString("nom")).icon(BitmapDescriptorFactory.defaultMarker(150)));
+                markerEvents.add(new MarkerOptions().position(new LatLng(e.getDouble("lat"), e.getDouble("long"))).title(e.getString("nom")).icon(BitmapDescriptorFactory.defaultMarker(150)));
             } catch (JSONException jsonException) {
                 jsonException.printStackTrace();
             }
         }
 
         markerCasiers();
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(48.711535, 2.213031), mMap.getMaxZoomLevel()-7));
 
-        */
 
-
+        /*
         markerCasiers.add(new MarkerOptions().position(new LatLng(48.71256936082508, 2.200860956792873)).title("Télécom Paris").icon(BitmapDescriptorFactory.defaultMarker(0)));
         markerEvents.add(new MarkerOptions().position(new LatLng(48.71201566810882, 2.2149531159803737)).title("Gymnase de l'ENSTA").icon(BitmapDescriptorFactory.defaultMarker(0)));
         markerEvents.add(new MarkerOptions().position(new LatLng(48.71523056366527, 2.211139913619598)).title("Coupe de l'X").icon(BitmapDescriptorFactory.defaultMarker(150)));
@@ -140,9 +161,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap.addMarker(new MarkerOptions().position(tetechLatLng).title("Télécom Paris").icon(BitmapDescriptorFactory.defaultMarker(0)));
 
         mMap.addMarker(new MarkerOptions().position(new LatLng(48.71523056366527, 2.211139913619598)).title("Coupe de l'X").icon(BitmapDescriptorFactory.defaultMarker(150)));
+        */
 
-
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(48.71256936082508, 2.200860956792873), mMap.getMaxZoomLevel()-5));
+        //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(48.71256936082508, 2.200860956792873), mMap.getMaxZoomLevel()-5));
 
 
 
@@ -219,7 +240,19 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 return true;
             case R.id.menu_map_recherche:
 
-                /* code test pour récupérer les casiers à partir de requête https*/
+                /* code test pour récupérer les casiers à partir de requête https
+                if (markerCasiers.size()==0){
+                    Log.i("INFORMA", "taille nul");
+                }
+
+                for(JSONObject c: casiers){
+                    try {
+                        Log.i("INFORMA",String.valueOf(c.getDouble("lat")));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
                 AsyncHttps https2= new AsyncHttps(MapsActivity.this);
                 https2.execute("https://sportbox.r2.enst.fr/api/getCasiers");
                 String resultRequest;
@@ -227,19 +260,19 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 String resultRequest2="Nope";
                 try{
                     resultRequest=https2.get().getString("data");
-                    resultRequest.replace("\\","");
+                    resultRequest=resultRequest.replace("\\","");
+                    int start=resultRequest.indexOf("{"), end=resultRequest.indexOf("}");
+                    resultRequest=resultRequest.substring(start, end+1);
                     Log.i("info0",resultRequest);
-                    JSONParser parser = new JSONParser();
-                    Object object = (Object) parser.parse(resultRequest);
-                    resultRequest1 = (JSONArray) object;
-                    resultRequest2= resultRequest1.getJSONObject(0).getString("Contenu");
+                    JSONObject o= new JSONObject(resultRequest);
+                    resultRequest2= o.getString("Contenu");
                 }
                 catch (Exception e){
                 }
                 if (resultRequest1==null){
                     Log.i("info1","mauvaise conversion");}
                 Log.i("info2", resultRequest2);
-
+                */
                 return true;
             case R.id.menu_map_casier:
                 return true;

@@ -49,7 +49,9 @@ public class InfoCasierActivity extends AppCompatActivity implements AdapterView
     unlock.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            // The user just clicked on unlock button
+            // The user just clicked on unlock
+            AsyncHttps http= new AsyncHttps(InfoCasierActivity.this);
+            http.execute("http://192.168.1.120/openCasier?token=token&idCasier=1");
         }
     });
 
