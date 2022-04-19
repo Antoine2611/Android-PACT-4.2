@@ -2,6 +2,7 @@ package fr.enst.pact42.sportbox;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -9,6 +10,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -27,11 +31,25 @@ public class InfoEventActivity extends AppCompatActivity implements AdapterView.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_event);
-
+        /*
         event=new EventModel("Cours de Yoga", "Télécom Paris", "Débutant", 0,15);
         events= new ArrayList<EventModel>();
         events.add(event);
         events.add(new EventModel("Match de foot", "Télécom Paris", "Professionnel", 3, 20));
+        */
+
+        events=new ArrayList<EventModel>();
+        Intent intent = getIntent();
+        int length =intent.getIntExtra("length",-1);
+        for (int i=0; i<=length; i++){
+            try {
+                JSONObject json = new JSONObject (intent.getStringExtra(String.valueOf(i)));
+                events.add(new EventModel(json.getString("nom"), "Gymnase de l'X", json.getString("Difficulte"), 0,json.getInt("maxJoin")));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        event=events.get(0);
 
         spinner=findViewById(R.id.spinner2);
         typeEvents = findViewById(R.id.type_events);

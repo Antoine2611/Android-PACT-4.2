@@ -1,5 +1,6 @@
 package fr.enst.pact42.sportbox;
 
+import static java.lang.Math.abs;
 import static fr.enst.pact42.sportbox.R.menu.*;
 
 import androidx.annotation.NonNull;
@@ -233,6 +234,20 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             message="Evenements situés à";
             array=events;
         }
+
+        int i=0;
+        for (JSONObject o: array){
+            try {
+                if (abs(o.getDouble("lat")-marker.getPosition().latitude)<0.0000000000001 && abs(o.getDouble("long")-marker.getPosition().longitude)<0.0000000000001){
+                    intent.putExtra(String.valueOf(i),o.toString());
+                    i++;
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        i=i-1;
+        intent.putExtra("length",i);
 
         new MarkerDialogFragment(intent,message+ "latitude : "+ marker.getPosition().latitude+" et longitude: "+marker.getPosition().longitude).show(getSupportFragmentManager(), MarkerDialogFragment.TAG);
 

@@ -3,7 +3,9 @@ package fr.enst.pact42.sportbox;
 import static fr.enst.pact42.sportbox.R.menu.activity_info_casier_menu;
 import static fr.enst.pact42.sportbox.R.menu.map_menu;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +17,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -33,10 +38,26 @@ public class InfoCasierActivity extends AppCompatActivity implements AdapterView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_casier);
+
+        /*
         casier = new CasierModel (1,"Ballon de foot", "Correct", "Telecom Paris",43, 42, true);
         casiers = new ArrayList<CasierModel>();
         casiers.add(casier);
         casiers.add(new CasierModel (2,"Ballon de Basket", "Mauvais", "Télécom Paris",43,2, true));
+        */
+
+        casiers=new ArrayList<CasierModel>();
+        Intent intent = getIntent();
+        int length =intent.getIntExtra("length",-1);
+        for (int i=0; i<=length; i++){
+            try {
+                JSONObject json = new JSONObject (intent.getStringExtra(String.valueOf(i)));
+                casiers.add(new CasierModel (json.getInt("idCasier"),json.getString("Contenu"), "Bon état", "Gymnase de l'X",json.getInt("lat"), json.getInt("long"), json.get("Ouvreur")==null));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        casier=casiers.get(0);
 
     typeMaterial = findViewById(R.id.type_material);
     condition=findViewById(R.id.condition);
